@@ -33,4 +33,9 @@ https://github.com/wphillipmoore/standards-and-conventions
 - AI co-authors: None documented.
 - Versioning: MAJOR.MINOR synced with mnemosys-core; PATCH.BUILD are repo-specific.
 - Release environments: develop, test, production.
+- Local validation:
+  - `python3 scripts/dev/validate_local.py`
+  - Docs-only changes: `python3 scripts/dev/validate_docs.py`
+- Tooling requirement:
+  - `uv` `0.9.26` (install with `python3 -m pip install uv==0.9.26`).
 - Local deviations: None.

@@ -142,10 +142,10 @@ After completing work and committing to your feature branch, validate locally be
 If a local validation script exists, use it. Otherwise run:
 
 ```bash
-poetry install
-poetry run ruff check src tests
-poetry run mypy src
-poetry run pytest
+uv sync --frozen --group dev
+uv run ruff check src tests
+uv run mypy src
+uv run pytest
 ```
 
 After validation passes, STOP and ask:
@@ -188,7 +188,7 @@ mnemosys-operations/
 ## Technology Stack
 
 - **Python**: 3.14+
-- **Packaging**: Poetry with `src/` layout
+- **Packaging**: uv with `src/` layout (setuptools build backend)
 - **CLI**: `mnemosys-ops` entrypoint (framework TBD)
 - **Testing**: pytest
 
@@ -201,19 +201,19 @@ Currently minimal; avoid adding heavy dependencies without justification.
 ### Setting Up the Environment
 
 ```bash
-poetry install
+uv sync --group dev
 ```
 
 ### Running the CLI
 
 ```bash
-poetry run mnemosys-ops --help
+uv run mnemosys-ops --help
 ```
 
 ### Running Tests
 
 ```bash
-poetry run pytest
+uv run pytest
 ```
 
 ## Coding Conventions
