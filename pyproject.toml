@@ -1,38 +1,38 @@
 [build-system]
-requires = ["poetry-core>=2,<3"]
-build-backend = "poetry.core.masonry.api"
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
 
 [project]
 name = "mnemosys-operations"
-version = "0.1.0.0"
+version = "0.1.0"
 description = "Operations policy, procedures, and CLI utilities for MNEMOSYS."
 readme = "README.md"
 license = "GPL-3.0-or-later"
 license-files = ["LICENSE"]
 authors = [{ name = "Phillip Moore", email = "w.phillip.moore@gmail.com" }]
 requires-python = ">=3.14,<4.0"
-dynamic = ["dependencies"]
+dependencies = []
 
 [project.scripts]
 mnemosys-ops = "mnemosys_operations.cli:main"
 
-[tool.poetry]
-packages = [{ include = "mnemosys_operations", from = "src" }]
+[dependency-groups]
+dev = [
+    "ruff",
+    "mypy",
+    "pytest",
+    "pytest-mock",
+    "pytest-cov",
+    "pytest-xdist",
+    "pre-commit",
+    "pip-audit",
+]
 
-[tool.poetry.dependencies]
-python = ">=3.14,<4.0"
+[tool.setuptools]
+package-dir = {"" = "src"}
 
-[tool.poetry.group.dev.dependencies]
-ruff = "*"
-mypy = "*"
-pytest = "*"
-pytest-mock = "*"
-pytest-cov = "*"
-pytest-xdist = "*"
-poetry = "*"
-poetry-plugin-export = "*"
-pre-commit = "*"
-pip-audit = "*"
+[tool.setuptools.packages.find]
+where = ["src"]
 
 [tool.ruff]
 line-length = 120

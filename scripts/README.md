@@ -12,4 +12,4 @@ Store developer tooling and automation scripts for this repository.
 Scripts should be small, explicit, and documented when they are introduced.
 
 ## Status
-No scripts committed yet.
+Scripts live under `scripts/dev/` for validation helpers.

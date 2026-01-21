@@ -14,7 +14,7 @@ started, and the open questions to resolve in the next bootstrap pass.
 ## Bootstrap results
 - Added the required standards reference at `docs/standards-and-conventions.md`.
 - Created documentation structure under `docs/` and ADR scaffolding.
-- Established Python application packaging with Poetry and a CLI entrypoint.
+- Established Python application packaging with uv and a CLI entrypoint.
 - Added baseline package structure under `src/` and placeholders for tests and
   scripts.
 
