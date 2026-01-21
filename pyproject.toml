@@ -20,6 +20,7 @@ mnemosys-ops = "mnemosys_operations.cli:main"
 dev = [
     "ruff",
     "mypy",
+    "ty",
     "pytest",
     "pytest-mock",
     "pytest-cov",
