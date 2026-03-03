@@ -26,14 +26,18 @@ limit, preventing unexpected charges while the project is on hiatus.
 
 ## Problem
 
-AWS automatically restarts any stopped RDS instance after 7 days. Both MNEMOSYS RDS
-instances (`mnemosys-postgres` and `mnemosys-test-postgres`) have been stopped to save
+AWS automatically restarts any stopped RDS instance after 7 days.
+Both MNEMOSYS RDS instances (`mnemosys-postgres` and
+`mnemosys-test-postgres`) have been stopped to save
 costs. Without monitoring, these instances would silently restart and accrue charges.
 
 ## Architecture
 
-```
-RDS instance starts → EventBridge rule matches event → Lambda invoked → rds:StopDBInstance
+```text
+RDS instance starts
+  → EventBridge rule matches event
+  → Lambda invoked
+  → rds:StopDBInstance
 ```
 
 - **EventBridge** watches for `RDS DB Instance Event` with message `DB instance started`
@@ -152,7 +156,7 @@ aws events put-rule \
     }
   }' \
   --state ENABLED \
-  --description "Fires when mnemosys RDS instances enter available state after AWS auto-restart"
+  --description "Fires when mnemosys RDS instances start"
 ```
 
 ### 5) Connect Rule to Lambda
